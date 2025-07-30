@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1753862366069,
+      "tag": "0000_keen_gertrude_yorkes",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1753865482398,
+      "tag": "0001_watery_vengeance",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1753865833440,
+      "tag": "0002_known_husk",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1753865878129,
+      "tag": "0003_short_argent",
+      "breakpoints": true
+    }
+  ]
+}

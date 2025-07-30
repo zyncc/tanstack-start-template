@@ -1,0 +1,16 @@
+Dockerfile
+.dockerignore
+compose.yaml
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.env
+.nitro
+.data
+.vercel
+.output
+.wrangler
+.netlify
+.tanstack
