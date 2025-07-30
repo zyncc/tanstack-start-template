@@ -1,4 +1,4 @@
-# [React TanStarter](https://github.com/dotnize/react-tanstarter)
+# [React TanStarter](https://github.com/zyncc/tanstack-start-template)
 
 A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
 
@@ -10,9 +10,9 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Getting Started
 
-We're using **pnpm** by default, but you can modify the scripts in [package.json](./package.json) to use your preferred package manager.
+We're using **npm** by default, but you can modify the scripts in [package.json](./package.json) to use your preferred package manager.
 
-1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository with gitpick:
+1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=zyncc) or clone this repository with gitpick:
 
    ```bash
    npx gitpick dotnize/react-tanstarter myapp
@@ -22,7 +22,7 @@ We're using **pnpm** by default, but you can modify the scripts in [package.json
 2. Install dependencies:
 
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. Create a `.env` file based on [`.env.example`](./.env.example).
@@ -30,7 +30,7 @@ We're using **pnpm** by default, but you can modify the scripts in [package.json
 4. Push the schema to your database with drizzle-kit:
 
    ```bash
-   pnpm db push
+   npm db push
    ```
 
    https://orm.drizzle.team/docs/migrations
@@ -38,7 +38,7 @@ We're using **pnpm** by default, but you can modify the scripts in [package.json
 5. Run the development server:
 
    ```bash
-   pnpm dev
+   npm dev
    ```
 
    The development server should now be running at [http://localhost:3000](http://localhost:3000).
@@ -52,13 +52,13 @@ We're using **pnpm** by default, but you can modify the scripts in [package.json
 
 #### Scripts
 
-These scripts in [package.json](./package.json#L5) use **pnpm** by default, but you can modify them to use your preferred package manager.
+These scripts in [package.json](./package.json#L5) use **npm** by default, but you can modify them to use your preferred package manager.
 
 - **`auth:generate`** - Regenerate the [auth db schema](./src/lib/db/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./src/lib/auth/index.ts).
-- **`db`** - Run drizzle-kit commands. (e.g. `pnpm db generate` to generate a migration)
-- **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button` to add the button component)
+- **`db`** - Run drizzle-kit commands. (e.g. `npm db generate` to generate a migration)
+- **`ui`** - The shadcn/ui CLI. (e.g. `npm ui add button` to add the button component)
 - **`format`**, **`lint`**, **`check-types`** - Run Prettier, ESLint, and check TypeScript types respectively.
-  - **`check`** - Run all three above. (e.g. `pnpm check`)
+  - **`check`** - Run all three above. (e.g. `npm check`)
 - **`deps`** - Selectively upgrade dependencies via taze.
 
 #### Utilities
@@ -69,12 +69,3 @@ These scripts in [package.json](./package.json#L5) use **pnpm** by default, but 
 ## Building for production
 
 Read the [hosting docs](https://tanstack.com/start/latest/docs/framework/react/hosting) for information on how to deploy your TanStack Start app.
-
-## License
-
-Code in this template is public domain via [Unlicense](./LICENSE). Feel free to remove or replace for your own project.
-
-## Also check out
-
-- [create-tsrouter-app](https://github.com/TanStack/create-tsrouter-app/tree/main/cli/create-tsrouter-app) - The official CLI tool from the TanStack team to create Router/Start applications.
-- [CarlosZiegler/fullstack-start-template](https://github.com/CarlosZiegler/fullstack-start-template) - A more batteries-included boilerplate that provides a solid foundation for building modern web apps.
