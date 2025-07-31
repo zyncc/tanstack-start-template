@@ -14,6 +14,8 @@ import { Route as rootRouteImport } from "./routes/__root";
 import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
 import { Route as authRouteRouteImport } from "./routes/(auth)/route";
 import { Route as IndexRouteImport } from "./routes/index";
+import { Route as TodosIndexRouteImport } from "./routes/todos/index";
+import { Route as OnboardingIndexRouteImport } from "./routes/onboarding/index";
 import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
 import { Route as authSignupRouteImport } from "./routes/(auth)/signup";
 import { Route as authLoginRouteImport } from "./routes/(auth)/login";
@@ -33,6 +35,16 @@ const authRouteRoute = authRouteRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: "/",
   path: "/",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const TodosIndexRoute = TodosIndexRouteImport.update({
+  id: "/todos/",
+  path: "/todos/",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
+  id: "/onboarding/",
+  path: "/onboarding/",
   getParentRoute: () => rootRouteImport,
 } as any);
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
@@ -62,12 +74,16 @@ export interface FileRoutesByFullPath {
   "/login": typeof authLoginRoute;
   "/signup": typeof authSignupRoute;
   "/dashboard/": typeof DashboardIndexRoute;
+  "/onboarding": typeof OnboardingIndexRoute;
+  "/todos": typeof TodosIndexRoute;
 }
 export interface FileRoutesByTo {
   "/": typeof authRouteRouteWithChildren;
   "/login": typeof authLoginRoute;
   "/signup": typeof authSignupRoute;
   "/dashboard": typeof DashboardIndexRoute;
+  "/onboarding": typeof OnboardingIndexRoute;
+  "/todos": typeof TodosIndexRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
@@ -77,12 +93,21 @@ export interface FileRoutesById {
   "/(auth)/login": typeof authLoginRoute;
   "/(auth)/signup": typeof authSignupRoute;
   "/dashboard/": typeof DashboardIndexRoute;
+  "/onboarding/": typeof OnboardingIndexRoute;
+  "/todos/": typeof TodosIndexRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/dashboard" | "/login" | "/signup" | "/dashboard/";
+  fullPaths:
+    | "/"
+    | "/dashboard"
+    | "/login"
+    | "/signup"
+    | "/dashboard/"
+    | "/onboarding"
+    | "/todos";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/login" | "/signup" | "/dashboard";
+  to: "/" | "/login" | "/signup" | "/dashboard" | "/onboarding" | "/todos";
   id:
     | "__root__"
     | "/"
@@ -90,13 +115,17 @@ export interface FileRouteTypes {
     | "/dashboard"
     | "/(auth)/login"
     | "/(auth)/signup"
-    | "/dashboard/";
+    | "/dashboard/"
+    | "/onboarding/"
+    | "/todos/";
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute;
   authRouteRoute: typeof authRouteRouteWithChildren;
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren;
+  OnboardingIndexRoute: typeof OnboardingIndexRoute;
+  TodosIndexRoute: typeof TodosIndexRoute;
 }
 export interface FileServerRoutesByFullPath {
   "/api/auth/$": typeof ApiAuthSplatServerRoute;
@@ -141,6 +170,20 @@ declare module "@tanstack/react-router" {
       path: "/";
       fullPath: "/";
       preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/todos/": {
+      id: "/todos/";
+      path: "/todos";
+      fullPath: "/todos";
+      preLoaderRoute: typeof TodosIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/onboarding/": {
+      id: "/onboarding/";
+      path: "/onboarding";
+      fullPath: "/onboarding";
+      preLoaderRoute: typeof OnboardingIndexRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/dashboard/": {
@@ -208,6 +251,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   authRouteRoute: authRouteRouteWithChildren,
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
+  OnboardingIndexRoute: OnboardingIndexRoute,
+  TodosIndexRoute: TodosIndexRoute,
 };
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

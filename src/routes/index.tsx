@@ -31,9 +31,14 @@ function Home() {
       {session?.user ? (
         <div className="flex flex-col items-center gap-2">
           <p>Welcome back, {session?.user.name}!</p>
-          <Button type="button" asChild className="mb-2 w-fit" size="lg">
-            <Link to="/dashboard">Go to Dashboard</Link>
-          </Button>
+          <div className="flex gap-x-4">
+            <Button type="button" asChild className="mb-2 w-fit" size="lg">
+              <Link to="/dashboard">Go to Dashboard</Link>
+            </Button>
+            <Button type="button" asChild className="mb-2 w-fit" size="lg">
+              <Link to="/todos">Go to Todos</Link>
+            </Button>
+          </div>
           <div className="text-center text-xs sm:text-sm">
             Session user:
             <pre className="max-w-screen overflow-x-auto px-2 text-start">

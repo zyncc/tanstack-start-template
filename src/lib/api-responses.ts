@@ -19,10 +19,18 @@ export function ErrorResponse(message: string, error?: ApiError): ApiResponse<nu
   return { success: false, message, error };
 }
 
-export function AuthErrorResponse(message = "Unauthorized"): ApiResponse<null> {
+export function AuthErrorResponse(message = "Authentication"): ApiResponse<null> {
   return {
     success: false,
     message,
     error: { code: 401, type: "Authentication failed" },
+  };
+}
+
+export function AuthorizationErrorResponse(message = "Unauthorized"): ApiResponse<null> {
+  return {
+    success: false,
+    message,
+    error: { code: 403, type: "Authentication failed" },
   };
 }
