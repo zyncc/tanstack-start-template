@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "check-types": "tsc --noEmit",
-    "check": "pnpm format && pnpm lint && pnpm check-types",
+    "check": "npm run format && npm run lint && npm run check-types",
     "db": "drizzle-kit",
     "deps": "pnpm dlx taze@latest -Ilw",
     "deps:major": "pnpm dlx taze@latest major -Ilw",

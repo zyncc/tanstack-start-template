@@ -14,5 +14,6 @@ drizzle/
 .vercel
 .output
 .wrangler
+.nitro
 .netlify
 dist
